@@ -183,21 +183,6 @@ const igRail = $('#igRail');
 $('#igNext').addEventListener('click', () => igRail.scrollBy({ left: 296, behavior: 'smooth' }));
 $('#igPrev').addEventListener('click', () => igRail.scrollBy({ left: -296, behavior: 'smooth' }));
 
-/* ---------- tour do painel ---------- */
-const tabs = $$('#tourTabs button'), views = $$('.tv'), prog = $('#tourProg');
-let tourIdx = 0, tourTimer;
-function setTour(i) {
-  tourIdx = i;
-  tabs.forEach((b, n) => b.classList.toggle('is-on', n === i));
-  views.forEach((v, n) => v.classList.toggle('is-on', n === i));
-  const b = tabs[i]; prog.style.left = b.offsetLeft + 'px'; prog.style.width = b.offsetWidth + 'px';
-  prog.classList.remove('run'); void prog.offsetWidth; prog.classList.add('run');
-}
-function autoTour() { clearInterval(tourTimer); tourTimer = setInterval(() => setTour((tourIdx + 1) % tabs.length), 6000); }
-tabs.forEach((b, i) => b.addEventListener('click', () => { setTour(i); autoTour(); }));
-addEventListener('load', () => setTour(0)); addEventListener('resize', () => setTour(tourIdx));
-new IntersectionObserver(([e]) => e.isIntersecting ? autoTour() : clearInterval(tourTimer), { threshold: .3 }).observe($('.browser'));
-
 /* ---------- calculadora ---------- */
 const range = $('#calcRange');
 const brl = v => 'R$ ' + Math.round(v).toLocaleString('pt-BR');
