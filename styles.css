@@ -545,7 +545,8 @@ input[type=range]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 
 .dock__visual { order: 1; }
 .dock__card { border-radius: 22px; }
 /* resultados direto após o dock */
-.res { background: var(--page); padding-top: 40px; }
+.res { background: var(--page); padding-top: 110px; }
+@media (max-width: 860px) { .res { padding-top: 70px; } }
 .integ { background: var(--page); }
 .eco { background: #fff; }
 /* jornada: trilho reto com progresso */
