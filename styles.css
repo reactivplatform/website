@@ -557,3 +557,22 @@ input[type=range]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 
 .jr__step span { background: var(--night-2); }
 @media (max-width: 1100px) { .dock__card { grid-template-columns: 1fr; } .dock__copy { order: 1; } .dock__visual { order: 2; } }
 @media (max-width: 860px) { .hero { padding: 120px 0 70px; } .hero__ghost { width: 120%; } .jr__line { top: 61px; } }
+
+/* CASES POR SEGMENTO */
+.cases { background: var(--night); color: #fff; padding: 110px 0 20px; position: relative; isolation: isolate; }
+.cases::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(45% 50% at 50% 45%, rgba(0, 96, 57, .28), transparent 75%); }
+.cases__head { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: end; margin-bottom: 50px; }
+.cases__head .lead { margin: 0; }
+.cases__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.case { padding: 26px; border-radius: 20px; background: rgba(255, 255, 255, .04); border: 1px solid rgba(255, 255, 255, .1); display: flex; flex-direction: column; transition: background .3s, border-color .3s, transform .4s var(--ease); }
+.case:hover { background: rgba(255, 255, 255, .07); border-color: rgba(122, 217, 171, .35); transform: translateY(-4px); }
+.case__ic { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: rgba(122, 217, 171, .12); color: var(--mint); }
+.case__seg { margin-top: 22px; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
+.case h3 { font-size: 21px; font-weight: 500; letter-spacing: -.03em; margin: 8px 0 10px; }
+.case > p:not(.case__seg) { font-size: 14.5px; line-height: 1.55; color: rgba(225, 238, 232, .68); }
+.case ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 20px; }
+.case li { padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .14); font-size: 12px; color: rgba(225, 238, 232, .8); }
+.dock { margin-top: -1px; }
+.dock__stick { padding-top: 70px; }
+@media (max-width: 1100px) { .cases__grid { grid-template-columns: 1fr 1fr; } .cases__head { grid-template-columns: 1fr; gap: 20px; } }
+@media (max-width: 860px) { .cases { padding: 70px 0 10px; } .cases__grid { grid-template-columns: 1fr; } }
