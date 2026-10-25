@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=8">
+  <link rel="stylesheet" href="styles.css?v=10">
 </head>
 <body>
 
@@ -481,19 +481,23 @@
 
   <!-- INTEGRAÇÕES -->
   <section class="integ" id="integracoes">
-    <div class="wrap">
-      <h2 class="h2"><span class="t-mute">Conecta com tudo</span><br>que você já usa.</h2>
-      <p class="lead">Integração com as principais plataformas de e-commerce, pagamento, ERP e logística do Brasil. O que não tiver pronto, o nosso time desenvolve.</p>
-      <div class="integ__map">
-        <div class="integ__grid" id="intGrid"></div>
-        <svg class="integ__wires" viewBox="0 0 160 300" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0 30 C70 30 70 150 160 150M0 110 C70 110 70 150 160 150M0 190 C70 190 70 150 160 150M0 270 C70 270 70 150 160 150"/>
-        </svg>
-        <div class="integ__hub"><span><img src="img/logo-mark.svg" alt="" width="60" height="60"></span><b>Reactiv</b></div>
-        <svg class="integ__wires integ__wires--r" viewBox="0 0 120 300" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0 150 C50 150 50 50 120 50M0 150 C50 150 50 150 120 150M0 150 C50 150 50 250 120 250"/>
-        </svg>
-        <div class="integ__ch" id="chGrid"></div>
+    <div class="wrap integ__in">
+      <div class="integ__copy">
+        <h2 class="h2 h2--light"><span class="t-mute">Conecta com tudo</span><br>que você já usa.</h2>
+        <p class="lead lead--light">Integração com as principais plataformas de e-commerce, pagamento, ERP e logística do Brasil. O que não tiver pronto, o nosso time desenvolve.</p>
+        <ul class="integ__cats">
+          <li><b>E-commerce</b>Shopify, Nuvemshop, Yampi, WooCommerce</li>
+          <li><b>Pagamentos</b>Mercado Pago, Stripe, Asaas, PagBank</li>
+          <li><b>ERP e logística</b>Bling, Tiny, Omie, Correios, Melhor Envio</li>
+          <li><b>Infoprodutos</b>Hotmart, Kiwify, Eduzz, Monetizze</li>
+        </ul>
+        <p class="integ__api"><span>+</span>API e webhooks pro que faltar</p>
+      </div>
+      <div class="orbit" aria-hidden="true">
+        <div class="orbit__ring orbit__ring--1" id="ring1"></div>
+        <div class="orbit__ring orbit__ring--2" id="ring2"></div>
+        <div class="orbit__ring orbit__ring--3" id="ring3"></div>
+        <div class="orbit__core"><img src="img/logo-mark.svg" alt="" width="72" height="72"></div>
       </div>
     </div>
   </section>
@@ -601,6 +605,6 @@
   </form>
 </div>
 
-<script src="script.js?v=7"></script>
+<script src="script.js?v=10"></script>
 </body>
 </html>

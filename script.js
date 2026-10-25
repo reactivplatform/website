@@ -46,8 +46,12 @@ const GOALS = [
 const chips = CLIENTS.map(c => `<span><img src="img/ig/${c.img}.jpg" alt="" width="34" height="34" loading="lazy">${esc(c.name)}</span>`).join('');
 $('#logos').innerHTML = chips + chips;
 
-$('#intGrid').innerHTML = INTEGRATIONS.map(n => `<div class="icard"><img src="img/int/${slug(n)}.png" alt="" loading="lazy">${n}</div>`).join('');
-$('#chGrid').innerHTML = CHANNELS.map(n => `<div class="icard"><img src="img/int/${slug(n)}.png" alt="" loading="lazy">${n}</div>`).join('');
+// órbita: canais no anel interno, plataformas nos externos
+[[CHANNELS, '#ring1'], [INTEGRATIONS.slice(0, 10), '#ring2'], [INTEGRATIONS.slice(10), '#ring3']].forEach(([list, sel]) => {
+  $(sel).innerHTML = list.map((n, i) => `<span class="orb" style="--a:${i * 360 / list.length}deg" title="${n}"><i><img src="img/int/${slug(n)}.png" alt="${n}" loading="lazy"></i></span>`).join('');
+});
+const sizeOrbit = () => $$('.orbit__ring').forEach(r => r.style.setProperty('--r', r.offsetWidth / 2 + 'px'));
+addEventListener('resize', sizeOrbit); sizeOrbit();
 
 $('#igRail').innerHTML = CLIENTS.map(c => `
   <a class="igc" href="https://www.instagram.com/${c.user}/" target="_blank" rel="noopener">
