@@ -199,6 +199,8 @@ jrSteps.forEach((s, i) => s.addEventListener('click', () => { setJr(i); autoJr()
 new IntersectionObserver(([e]) => e.isIntersecting ? autoJr() : clearInterval(jrTimer), { threshold: .4 }).observe($('.jr__panel'));
 
 /* ---------- reveal ---------- */
+const nfIO = new IntersectionObserver(([e]) => { if (e.isIntersecting) { e.target.classList.add('in'); nfIO.disconnect(); } }, { threshold: .35 });
+if (document.querySelector('.nf')) nfIO.observe(document.querySelector('.nf'));
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
 $$('.h2, .lead, .integ__map, .eco__grid, .browser, .calc__box, .res__rail, .ld__in > *').forEach(el => { el.classList.add('rv'); io.observe(el); });
 
