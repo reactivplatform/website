@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reactiv · CRM de WhatsApp, Instagram e vendas, com time que opera junto</title>
+  <meta name="description" content="CRM de WhatsApp, Instagram, SMS e e-mail com automações, I.A e um time que implanta, integra e opera a sua operação comercial.">
+  <meta name="theme-color" content="#03140D">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ícones (traço 1.75, estilo lucide) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></symbol>
+    <symbol id="i-funnel" viewBox="0 0 24 24"><path d="M3 4h18l-7 9v6l-4 2v-8L3 4Z"/></symbol>
+    <symbol id="i-repeat" viewBox="0 0 24 24"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-8"/><path d="M14 7h7v7"/></symbol>
+    <symbol id="i-window" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 2v6M15 2v6M6 8h12v4a6 6 0 0 1-12 0V8ZM12 18v4"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3ZM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16Z"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0M16 4a4 4 0 0 1 0 8M22 21a7 7 0 0 0-4-6.3"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V3h9l9 9-9 9-9-9Z"/><circle cx="7.5" cy="7.5" r="1.5"/></symbol>
+    <symbol id="i-pix" viewBox="0 0 24 24"><path d="m12 2 4 4-4 4-4-4 4-4ZM2 12l4-4 4 4-4 4-4-4ZM14 12l4-4 4 4-4 4-4-4ZM12 14l4 4-4 4-4-4 4-4Z"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L22 7H6"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m16 8-2 6-6 2 2-6 6-2Z"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m16 10 6-3v10l-6-3"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M12 8v8M8 12h8"/></symbol>
+    <symbol id="i-circlecheck" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h12v10H2zM14 10h4l4 4v2h-8"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 5.6a5.5 5.5 0 0 0-7.8 0L12 6.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8L12 22l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></symbol>
+    <symbol id="i-dollar" viewBox="0 0 24 24"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
+    <symbol id="i-store" viewBox="0 0 24 24"><path d="M3 9 5 3h14l2 6M3 9h18v2a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0V9ZM5 13v8h14v-8"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-play"viewBox="0 0 24 24"><path d="M6 4v16l14-8L6 4Z"/></symbol>
+  </defs>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="nav__in">
+    <a href="#top" class="brand" aria-label="Reactiv, início">
+      <img src="img/logo-mark.svg" alt="" width="28" height="28">
+      <span>reactiv</span>
+    </a>
+    <nav class="nav__links" id="menu">
+      <a href="#plataforma">Plataforma</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#resultados">Clientes</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="nav__end">
+      <a class="nav__login" href="https://app.reactiv.com.br"><svg class="ic"><use href="#i-user"/></svg>Login</a>
+      <a class="btn btn--white btn--sm" href="#contato" data-open-form>Falar com especialista</a>
+      <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero__bg" aria-hidden="true">
+      <div class="hero__ghost">
+        <div class="gh-row"><i style="width:38%"></i><i style="width:22%"></i></div>
+        <div class="gh-cards"><b></b><b></b><b></b></div>
+        <div class="gh-chart"></div>
+        <div class="gh-row"><i style="width:60%"></i></div>
+        <div class="gh-row"><i style="width:44%"></i><i style="width:18%"></i></div>
+      </div>
+    </div>
+    <div class="wrap hero__in">
+      <h1 class="hero__title">
+        <span class="t-mute">Seu cliente chama.</span>
+        Quem responde primeiro<br class="br-d"> leva a venda.
+      </h1>
+      <div class="hero__foot">
+        <p class="hero__sub">CRM, automações e I.A num só lugar, com um time que implanta e opera junto com você. Use a nossa estrutura de <span class="hl">WhatsApp</span>.</p>
+        <a href="#painel" class="hero__peek"><svg class="ic ic--fill"><use href="#i-play"/></svg>Veja o painel por dentro</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCK: etapas fixas no scroll -->
+  <div class="dock" id="plataforma">
+    <div class="dock__stick">
+      <div class="dock__card">
+        <div class="dock__copy">
+          <div class="dock__texts">
+            <article class="dock__text is-on">
+              <h2>CRM de vendas<br>&amp; atendimento</h2>
+              <p>Site, Click to WhatsApp, Instagram e formulários colocam o lead direto no funil, com origem e histórico registrados.</p>
+              <ul class="feat">
+                <li><span class="feat__ic"><svg class="ic"><use href="#i-window"/></svg></span><div><b>Formulários e pop-ups</b>Captação no site e na loja</div></li>
+                <li><span class="feat__ic"><svg class="ic"><use href="#i-chat"/></svg></span><div><b>Click to WhatsApp</b>Anúncio direto pro atendimento</div></li>
+                <li><span class="feat__ic"><svg class="ic"><use href="#i-plug"/></svg></span><div><b>Webhooks e API</b>Leads de qualquer origem</div></li>
+              </ul>
+            </article>
+            <article class="dock__text">
+              <h2>Atendimento<br>que não esfria</h2>
+              <p>Inbox única de WhatsApp, Instagram e e-mail. A I.A responde em segundos e passa pro vendedor certo quando faz diferença.</p>
+              <ul class="feat">
+                <li><span class="feat__ic"><svg class="ic"><use href="#i-spark"/></svg></span><div><b>Agente de I.A</b>Treinado com a voz da sua marca</div></li>
+                <li><span class="feat__ic"><svg class="ic"><use href="#i-users"/></svg></span><div><b>Distribuição automática</b>Rodízio por vendedor e por fila</div></li>
+                <li><span class="feat__ic"><svg class="ic"><use href="#i-tag"/></svg></span><div><b>Etiquetas e notas</b>Contexto completo de cada cliente</div></li>
+              </ul>
+            </article>
+            <article class="dock__text">
+              <h2>Funil que<br>mostra o dinheiro</h2>
+              <p>Pipeline em kanban, propostas e follow-up automático. Você vê onde cada negócio parou e quanto vale.</p>
+              <ul class="feat">
+                <li><span class="feat__ic"><svg class="ic"><use href="#i-funnel"/></svg></span><div><b>Pipelines ilimitados</b>Um por produto, time ou unidade</div></li>
+                <li><span class="feat__ic"><svg class="ic"><use href="#i-pix"/></svg></span><div><b>Pix e carrinho</b>Cobrança pendente vira lembrete</div></li>
+                <li><span class="feat__ic"><svg class="ic"><use href="#i-bolt"/></svg></span><div><b>Follow-up automático</b>Ninguém fica sem resposta</div></li>
+              </ul>
+            </article>
+            <article class="dock__text">
+              <h2>Recompra<br>no automático</h2>
+              <p>Régua de pós-venda, reposição e reativação. O cliente volta antes de ir pro concorrente.</p>
+              <ul class="feat">
+                <li><span class="feat__ic"><svg class="ic"><use href="#i-repeat"/></svg></span><div><b>Régua de recompra</b>No tempo de uso de cada produto</div></li>
+                <li><span class="feat__ic"><svg class="ic"><use href="#i-heart"/></svg></span><div><b>Pós-venda e NPS</b>Satisfação registrada no contato</div></li>
+                <li><span class="feat__ic"><svg class="ic"><use href="#i-users"/></svg></span><div><b>Segmentação</b>Base dividida por comportamento</div></li>
+              </ul>
+            </article>
+            <article class="dock__text">
+              <h2>Mais lucro,<br>no painel</h2>
+              <p>Receita por canal, por campanha e por vendedor. Cada disparo mostra quanto devolveu em venda.</p>
+              <ul class="feat">
+                <li><span class="feat__ic"><svg class="ic"><use href="#i-trend"/></svg></span><div><b>ROI por disparo</b>Investimento contra receita</div></li>
+                <li><span class="feat__ic"><svg class="ic"><use href="#i-target"/></svg></span><div><b>Metas por vendedor</b>Ranking e comissão</div></li>
+                <li><span class="feat__ic"><svg class="ic"><use href="#i-dollar"/></svg></span><div><b>Receita atribuída</b>Do clique ao Pix pago</div></li>
+              </ul>
+            </article>
+          </div>
+          <a href="#painel" class="dock__more">Ver o painel em detalhe <svg class="ic"><use href="#i-arrow"/></svg></a>
+        </div>
+
+        <div class="dock__visual">
+          <div class="stages" role="tablist">
+            <button class="stage is-on" data-stage="0"><span><svg class="ic"><use href="#i-target"/></svg></span>Captação</button>
+            <button class="stage" data-stage="1"><span><svg class="ic"><use href="#i-chat"/></svg></span>Atendimento</button>
+            <button class="stage" data-stage="2"><span><svg class="ic"><use href="#i-funnel"/></svg></span>Vendas</button>
+            <button class="stage" data-stage="3"><span><svg class="ic"><use href="#i-repeat"/></svg></span>Retenção</button>
+            <i class="stage__eq">=</i>
+            <button class="stage" data-stage="4"><span><svg class="ic"><use href="#i-trend"/></svg></span>Mais lucro</button>
+          </div>
+          <div class="screens">
+            <!-- 0 captação -->
+            <div class="scr is-on">
+              <span class="scr__chip">Leads por origem</span>
+              <div class="scr__grid">
+                <div class="tile"><small>Leads no mês</small><b>3.482</b><em>+18,4% vs. mês anterior</em><svg class="spark" viewBox="0 0 120 36"><path d="M0 30 15 26 30 28 45 18 60 21 75 12 90 14 105 6 120 8"/></svg></div>
+                <div class="tile"><small>Custo por lead</small><b>R$ 7,92</b><em>−11% com Click to WhatsApp</em><svg class="spark" viewBox="0 0 120 36"><path d="M0 8 15 10 30 9 45 16 60 14 75 20 90 19 105 26 120 27"/></svg></div>
+                <div class="tile tile--list">
+                  <div class="seg"><span>Origem</span><span>Conversão</span></div>
+                  <p><i style="--c:#25D366"></i>WhatsApp <b>1.904</b></p><div class="bar"><span style="width:55%"></span></div>
+                  <p><i style="--c:#E1306C"></i>Instagram <b>872</b></p><div class="bar"><span style="width:25%"></span></div>
+                  <p><i style="--c:#0E8A55"></i>Site <b>512</b></p><div class="bar"><span style="width:15%"></span></div>
+                  <p><i style="--c:#9AA8A1"></i>Indicação <b>194</b></p><div class="bar"><span style="width:6%"></span></div>
+                </div>
+              </div>
+            </div>
+            <!-- 1 atendimento -->
+            <div class="scr">
+              <span class="scr__chip">Inbox unificada</span>
+              <div class="chatmock">
+                <ul>
+                  <li class="on"><i style="background:#cfe7da">MS</i><div><b>Mariana Souza</b><small>Consigo parcelar em 3x?</small></div><em>agora</em></li>
+                  <li><i style="background:#f6dde6">LC</i><div><b>@lojadacris</b><small>Respondeu ao seu story</small></div><em>2 min</em></li>
+                  <li><i style="background:#e5e7f6">PL</i><div><b>Pedro Lima</b><small>Orçamento para 40 un.</small></div><em>8 min</em></li>
+                  <li><i style="background:#f6efd9">JR</i><div><b>Juliana R.</b><small>Pix gerado, aguardando</small></div><em>15 min</em></li>
+                </ul>
+                <div class="chatmock__talk">
+                  <p class="m in">Oi! Consigo parcelar em 3x sem juros?</p>
+                  <p class="m out">Consegue sim, Mariana. No cartão fica 3x de R$ 129,90. Te mando o link?</p>
+                  <p class="m in">Pode mandar!</p>
+                  <p class="m out">Aqui está: reactiv.link/p/8F2a</p>
+                  <span class="m__tag"><svg class="ic"><use href="#i-spark"/></svg>Respondido pela I.A em 4s</span>
+                </div>
+              </div>
+            </div>
+            <!-- 2 vendas -->
+            <div class="scr">
+              <span class="scr__chip">Pipeline comercial</span>
+              <div class="kanban">
+                <div><h6>Novo <i>124</i></h6><p>Studio Bela<b>R$ 2.400</b></p><p>TechOne<b>R$ 8.000</b></p><p>Clínica Vita<b>R$ 3.200</b></p></div>
+                <div><h6>Qualificado <i>58</i></h6><p>Grupo Max<b>R$ 15.000</b></p><p class="hot">Atlas Log<b>R$ 22.500</b></p></div>
+                <div><h6>Proposta <i>31</i></h6><p>Nexo<b>R$ 6.800</b></p><p>Prime<b>R$ 11.200</b></p></div>
+                <div><h6>Ganho <i>47</i></h6><p class="won">Lumen<b>R$ 9.900</b></p><p class="won">Orbe<b>R$ 4.300</b></p></div>
+              </div>
+            </div>
+            <!-- 3 retenção -->
+            <div class="scr">
+              <span class="scr__chip">Régua de recompra</span>
+              <div class="flowmock">
+                <div class="fnode"><svg class="ic"><use href="#i-cart"/></svg><div><b>Compra aprovada</b><small>Gatilho da loja</small></div></div>
+                <span class="fline"><em>1 dia</em></span>
+                <div class="fnode"><svg class="ic"><use href="#i-truck"/></svg><div><b>Rastreio no WhatsApp</b><small>98% de leitura</small></div></div>
+                <span class="fline"><em>25 dias</em></span>
+                <div class="fnode"><svg class="ic"><use href="#i-repeat"/></svg><div><b>Lembrete de reposição</b><small>Com cupom de 5%</small></div></div>
+                <span class="fline"><em>se não comprar</em></span>
+                <div class="fnode fnode--gold"><svg class="ic"><use href="#i-spark"/></svg><div><b>Oferta pela I.A</b><small>Recompra: 31,8%</small></div></div>
+              </div>
+            </div>
+            <!-- 4 lucro -->
+            <div class="scr">
+              <span class="scr__chip">Visão geral</span>
+              <div class="scr__grid">
+                <div class="tile tile--wide"><small>Receita via Reactiv · 30 dias</small><b>R$ 412.870,00</b><em>+31% vs. período anterior</em>
+                  <svg class="area" viewBox="0 0 300 80" preserveAspectRatio="none"><path class="area__f" d="M0 70 25 64 50 66 75 52 100 56 125 40 150 44 175 30 200 34 225 20 250 24 275 10 300 12V80H0Z"/><path class="area__l" d="M0 70 25 64 50 66 75 52 100 56 125 40 150 44 175 30 200 34 225 20 250 24 275 10 300 12"/></svg></div>
+                <div class="tile"><small>Recuperado</small><b>R$ 98.410</b><em>carrinho, Pix e boleto</em></div>
+                <div class="tile"><small>ROI dos disparos</small><b>18,6x</b><em>R$ 1 vira R$ 18,60</em></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dock__dots"><i class="is-on"></i><i></i><i></i><i></i><i></i></div>
+    </div>
+  </div>
+
+  <!-- LOGOS -->
+  <section class="logos" id="clientes">
+    <p>Marcas que operam com a Reactiv</p>
+    <div class="logos__mask"><div class="logos__track" id="logos"></div></div>
+  </section>
+
+  <!-- CANAIS -->
+  <section class="canais">
+    <div class="panel panel--dark canais__panel">
+      <div class="canais__phone">
+        <div class="ch-tabs" id="chTabs"><button class="is-on">WhatsApp</button><button>Instagram</button><button>SMS</button><button>E-mail</button></div>
+        <div class="phone">
+          <div class="phone__head"><svg class="ic"><use href="#i-arrow"/></svg><i>PA</i><div><b>Paula Andrade</b><small id="phSub">online</small></div></div>
+          <div class="phone__body" id="phBody"></div>
+          <div class="phone__input">Digite uma mensagem…</div>
+        </div>
+      </div>
+      <div class="canais__copy">
+        <h2 class="h2 h2--light"><span class="t-mute">A gente configura uma vez.</span><br>Você vende sempre.</h2>
+        <p class="lead lead--light">Seja qual for o objetivo, nosso time monta a estratégia e as automações pra sua empresa.</p>
+        <div class="goals" id="goals">
+          <button class="is-on"><svg class="ic"><use href="#i-dollar"/></svg>Recuperação</button>
+          <button><svg class="ic"><use href="#i-heart"/></svg>Pós-compra</button>
+          <button><svg class="ic"><use href="#i-chat"/></svg>Atendimento</button>
+          <button><svg class="ic"><use href="#i-calendar"/></svg>Agendamento</button>
+          <button><svg class="ic"><use href="#i-repeat"/></svg>Recompra</button>
+          <button><svg class="ic"><use href="#i-bolt"/></svg>Pico de vendas</button>
+        </div>
+        <div class="goal">
+          <span class="goal__tag" id="goalTag">Vendas</span>
+          <h3 id="goalTitle">Recupere cada venda que escapou.</h3>
+          <p id="goalText">Carrinho abandonado, Pix não pago, boleto vencido, cartão recusado. Cada situação tem uma automação que age no momento certo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS (carrossel central, como "operações" da referência) -->
+  <section class="svc" id="servicos">
+    <div class="wrap">
+      <h2 class="h2"><span class="t-mute">Software sozinho não vende.</span><br>Processo bem feito, sim.</h2>
+      <p class="lead">Além do CRM, a Reactiv é um time de tecnologia. A gente entende o negócio, desenha o processo certo e acompanha até virar número.</p>
+    </div>
+    <div class="svc__rail" id="svcRail">
+      <article class="scard"><span class="scard__ic"><svg class="ic"><use href="#i-gear"/></svg></span><h3>Implantação de CRM</h3><p>Mapeamos o funil, migramos a base e configuramos pipeline, etiquetas e permissões. Seu time começa usando, não configurando.</p><p class="scard__out"><svg class="ic"><use href="#i-arrow"/></svg>Operação no ar em até 7 dias.</p><a href="#contato" data-open-form class="scard__btn">Falar com especialista</a></article>
+      <article class="scard"><span class="scard__ic"><svg class="ic"><use href="#i-spark"/></svg></span><h3>Agentes de I.A</h3><p>Assistentes treinados com seu catálogo, políticas e tom de voz. Qualificam, respondem, agendam e passam pro humano.</p><p class="scard__out"><svg class="ic"><use href="#i-arrow"/></svg>Atendimento 24h sem contratar mais gente.</p><a href="#contato" data-open-form class="scard__btn">Falar com especialista</a></article>
+      <article class="scard"><span class="scard__ic"><svg class="ic"><use href="#i-plug"/></svg></span><h3>Integrações sob medida</h3><p>Loja, ERP, gateway, planilha ou sistema interno. Se tem API ou webhook, a gente conecta ao CRM.</p><p class="scard__out"><svg class="ic"><use href="#i-arrow"/></svg>Dado certo, no lugar certo, sem copiar e colar.</p><a href="#contato" data-open-form class="scard__btn">Falar com especialista</a></article>
+      <article class="scard"><span class="scard__ic"><svg class="ic"><use href="#i-users"/></svg></span><h3>Operação gerenciada</h3><p>Um analista dedicado cria campanhas, aprova templates na Meta, acompanha métricas e ajusta a régua toda semana.</p><p class="scard__out"><svg class="ic"><use href="#i-arrow"/></svg>Um time de CRM inteiro, sem encargos.</p><a href="#contato" data-open-form class="scard__btn">Falar com especialista</a></article>
+      <article class="scard"><span class="scard__ic"><svg class="ic"><use href="#i-compass"/></svg></span><h3>Consultoria de processos</h3><p>Diagnóstico comercial e de atendimento: onde o lead esfria, onde a venda escapa e qual processo resolve.</p><p class="scard__out"><svg class="ic"><use href="#i-arrow"/></svg>Plano de ação com número no final.</p><a href="#contato" data-open-form class="scard__btn">Falar com especialista</a></article>
+      <article class="scard"><span class="scard__ic"><svg class="ic"><use href="#i-code"/></svg></span><h3>Software sob medida</h3><p>Sistemas, dashboards, automações e páginas pro que nenhuma ferramenta de prateleira resolve.</p><p class="scard__out"><svg class="ic"><use href="#i-arrow"/></svg>Feito pro seu processo, não o contrário.</p><a href="#contato" data-open-form class="scard__btn">Falar com especialista</a></article>
+    </div>
+    <div class="svc__dots" id="svcDots"></div>
+    <p class="svc__foot">Configurar uma vez dói menos que perder venda todo mês.<br><a href="#como-funciona">Como funciona ›</a><a href="#contato" data-open-form>Falar com um especialista ›</a></p>
+  </section>
+
+  <!-- INTEGRAÇÕES -->
+  <section class="integ" id="integracoes">
+    <div class="wrap">
+      <h2 class="h2"><span class="t-mute">Conecta com tudo</span><br>que você já usa.</h2>
+      <p class="lead">Integração com as principais plataformas de e-commerce, pagamento, ERP e logística do Brasil. O que não tiver pronto, o nosso time desenvolve.</p>
+      <div class="integ__map">
+        <div class="integ__grid" id="intGrid"></div>
+        <svg class="integ__wires" viewBox="0 0 160 300" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 30 C70 30 70 150 160 150M0 110 C70 110 70 150 160 150M0 190 C70 190 70 150 160 150M0 270 C70 270 70 150 160 150"/>
+        </svg>
+        <div class="integ__hub"><span><img src="img/logo-mark.svg" alt="" width="60" height="60"></span><b>Reactiv</b></div>
+        <svg class="integ__wires integ__wires--r" viewBox="0 0 120 300" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 150 C50 150 50 50 120 50M0 150 C50 150 50 150 120 150M0 150 C50 150 50 250 120 250"/>
+        </svg>
+        <div class="integ__ch" id="chGrid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTADOS -->
+  <section class="res" id="resultados">
+    <div class="panel panel--dark res__panel">
+      <div class="res__head">
+        <h2 class="h2 h2--light"><span class="t-mute">Marcas que confiaram</span><br>a tecnologia à Reactiv.</h2>
+        <p class="lead lead--light">Entendemos o negócio de cada cliente, desenhamos o processo certo e acompanhamos até o objetivo virar número. Somadas, essas marcas falam com mais de 4 milhões de pessoas.</p>
+      </div>
+      <div class="res__rail" id="igRail"></div>
+      <div class="res__nav"><button id="igPrev" aria-label="Anterior"><svg class="ic" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></button><button id="igNext" aria-label="Próximo"><svg class="ic"><use href="#i-arrow"/></svg></button></div>
+    </div>
+  </section>
+
+  <!-- ECONOMIA -->
+  <section class="eco" id="economia">
+    <div class="wrap">
+      <h2 class="h2"><span class="t-mute">Uma plataforma no lugar de cinco.</span><br>A diferença vira lucro.</h2>
+      <p class="lead">E-mail numa ferramenta, WhatsApp em outra, chatbot em outra, CRM em outra. Cada uma com sua mensalidade e ninguém conversando com ninguém. Na Reactiv está tudo num lugar só, e quem opera é o nosso time.</p>
+      <div class="eco__grid">
+        <div class="eco__old">
+          <p class="eyebrow">Montando isso por fora</p>
+          <ul>
+            <li><span class="li-ic"><svg class="ic"><use href="#i-funnel"/></svg></span><div><b>CRM de vendas</b>5 usuários, plano completo</div><em>R$ 1.250</em></li>
+            <li><span class="li-ic"><svg class="ic"><use href="#i-chat"/></svg></span><div><b>Ferramenta de WhatsApp e disparo</b>API oficial, multiatendimento</div><em>R$ 690</em></li>
+            <li><span class="li-ic"><svg class="ic"><use href="#i-spark"/></svg></span><div><b>Chatbot / I.A de atendimento</b>Plano com volume</div><em>R$ 1.700</em></li>
+            <li><span class="li-ic"><svg class="ic"><use href="#i-window"/></svg></span><div><b>Plataforma de e-mail marketing</b>Base de 50 mil contatos</div><em>R$ 2.400</em></li>
+            <li><span class="li-ic"><svg class="ic"><use href="#i-plug"/></svg></span><div><b>Automação e integrações</b>Zapier/Make no volume</div><em>R$ 900</em></li>
+            <li><span class="li-ic"><svg class="ic"><use href="#i-user"/></svg></span><div><b>Alguém pra configurar e operar tudo</b>Analista de CRM sênior, sem encargos</div><em>R$ 12.000</em></li>
+          </ul>
+          <div class="eco__sum"><span>Somando tudo</span><strong>R$ 18.940</strong><small>/mês</small></div>
+          <p class="fine">Valores de referência de mercado em 2026 para uma operação com 5 vendedores. Salário de referência para analista sênior.</p>
+        </div>
+        <span class="eco__arrow"><svg class="ic"><use href="#i-arrow"/></svg></span>
+        <div class="eco__new">
+          <p class="eyebrow eyebrow--light">Com a Reactiv</p>
+          <p class="eco__big">1<small>contrato</small></p>
+          <p class="eco__tag">Tudo isso, em um único lugar.</p>
+          <p class="eco__note">Plano sob medida pro tamanho da sua operação, com a implantação inclusa.</p>
+          <ul class="checks">
+            <li>CRM com funil, inbox e usuários</li>
+            <li>WhatsApp API oficial e disparo em massa</li>
+            <li>Instagram DM, SMS e e-mail</li>
+            <li>Agentes de I.A e fluxos automáticos</li>
+            <li>Time Reactiv implantando e operando</li>
+          </ul>
+          <a href="#contato" data-open-form class="btn btn--white">Quero minha proposta <span class="btn__sq"><svg class="ic"><use href="#i-up"/></svg></span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOUR -->
+  <section class="tour" id="painel">
+    <div class="wrap">
+      <h2 class="h2 center"><span class="t-mute">Espie algumas funcionalidades.</span><br>O painel por dentro.</h2>
+      <p class="lead center">Receita, conversas, funil e I.A. Clique nas abas ou deixe o tour rodar.</p>
+      <div class="tour__tabs" id="tourTabs">
+        <button class="is-on"><svg class="ic"><use href="#i-window"/></svg>Visão geral</button>
+        <button><svg class="ic"><use href="#i-chat"/></svg>Inbox</button>
+        <button><svg class="ic"><use href="#i-funnel"/></svg>Funil</button>
+        <button><svg class="ic"><use href="#i-users"/></svg>Clientes</button>
+        <button><svg class="ic"><use href="#i-spark"/></svg>I.A</button>
+        <i class="tour__prog" id="tourProg"></i>
+      </div>
+      <div class="browser">
+        <div class="browser__bar"><i></i><i></i><i></i><span><svg class="ic"><use href="#i-lock"/></svg>app.reactiv.com.br</span><em>ao vivo</em></div>
+        <div class="browser__body" id="tourBody">
+          <div class="tv is-on">
+            <div class="band"><p>Impacto da Reactiv no período <em>sincronizado</em></p><div><b>R$ 1,10M</b><small>Receita total</small></div><div><b>R$ 248,3K</b><small>Recuperada</small></div><div><b>22,6%</b><small>% via Reactiv</small></div></div>
+            <div class="tv__grid">
+              <div class="tile"><small>Últimos 7 dias</small><b>R$ 264.000,00</b><em>1.008 vendas</em><svg class="area" viewBox="0 0 300 80" preserveAspectRatio="none"><path class="area__f" d="M0 60 40 50 80 56 120 38 160 46 200 30 240 40 300 14V80H0Z"/><path class="area__l" d="M0 60 40 50 80 56 120 38 160 46 200 30 240 40 300 14"/></svg></div>
+              <div class="tile"><small>Este mês</small><b>R$ 110.000,00</b><em>420 vendas</em><svg class="area" viewBox="0 0 300 80" preserveAspectRatio="none"><path class="area__f" d="M0 66 40 58 80 62 120 48 160 54 200 40 240 36 300 18V80H0Z"/><path class="area__l" d="M0 66 40 58 80 62 120 48 160 54 200 40 240 36 300 18"/></svg></div>
+              <div class="tile tile--list"><div class="seg"><span>Canal</span><span>Vendedor</span></div>
+                <p><i style="--c:#25D366"></i>WhatsApp <b>R$ 692K</b></p><div class="bar"><span style="width:63%"></span></div>
+                <p><i style="--c:#E1306C"></i>Instagram <b>R$ 214K</b></p><div class="bar"><span style="width:19%"></span></div>
+                <p><i style="--c:#0E8A55"></i>Site <b>R$ 131K</b></p><div class="bar"><span style="width:12%"></span></div>
+                <p><i style="--c:#C9A24A"></i>E-mail <b>R$ 63K</b></p><div class="bar"><span style="width:6%"></span></div></div>
+            </div>
+          </div>
+          <div class="tv">
+            <div class="chatmock chatmock--big">
+              <ul>
+                <li class="on"><i style="background:#cfe7da">MS</i><div><b>Mariana Souza</b><small>WhatsApp · Consigo parcelar?</small></div><em>agora</em></li>
+                <li><i style="background:#f6dde6">LC</i><div><b>@lojadacris</b><small>Instagram · story</small></div><em>2 min</em></li>
+                <li><i style="background:#e5e7f6">PL</i><div><b>Pedro Lima</b><small>E-mail · orçamento</small></div><em>8 min</em></li>
+                <li><i style="background:#f6efd9">JR</i><div><b>Juliana R.</b><small>WhatsApp · Pix pendente</small></div><em>15 min</em></li>
+                <li><i style="background:#dfeef0">RT</i><div><b>Rafael T.</b><small>WhatsApp · agendar visita</small></div><em>21 min</em></li>
+              </ul>
+              <div class="chatmock__talk">
+                <p class="m in">Oi! Consigo parcelar em 3x sem juros?</p>
+                <p class="m out">Consegue sim, Mariana. No cartão fica 3x de R$ 129,90. Te mando o link?</p>
+                <p class="m in">Pode mandar!</p>
+                <p class="m out">Aqui está: reactiv.link/p/8F2a</p>
+                <span class="m__tag"><svg class="ic"><use href="#i-spark"/></svg>Respondido pela I.A · etiqueta “quente” aplicada</span>
+              </div>
+              <aside class="chatmock__side"><b>Mariana Souza</b><small>Cliente desde mar/2025</small><dl><dt>Pedidos</dt><dd>7</dd><dt>Ticket médio</dt><dd>R$ 384</dd><dt>Vendedor</dt><dd>Ana P.</dd><dt>Etapa</dt><dd>Negociação</dd></dl></aside>
+            </div>
+          </div>
+          <div class="tv">
+            <div class="kanban kanban--big">
+              <div><h6>Novo <i>124</i></h6><p>Studio Bela<b>R$ 2.400</b></p><p>TechOne<b>R$ 8.000</b></p><p>Clínica Vita<b>R$ 3.200</b></p><p>Rede Sol<b>R$ 5.100</b></p></div>
+              <div><h6>Qualificado <i>58</i></h6><p>Grupo Max<b>R$ 15.000</b></p><p class="hot">Atlas Log<b>R$ 22.500</b></p><p>Vértice<b>R$ 7.700</b></p></div>
+              <div><h6>Proposta <i>31</i></h6><p>Nexo<b>R$ 6.800</b></p><p>Prime<b>R$ 11.200</b></p></div>
+              <div><h6>Negociação <i>19</i></h6><p>Alfa Saúde<b>R$ 18.000</b></p><p>Mova<b>R$ 3.900</b></p></div>
+              <div><h6>Ganho <i>47</i></h6><p class="won">Lumen<b>R$ 9.900</b></p><p class="won">Orbe<b>R$ 4.300</b></p><p class="won">Kora<b>R$ 12.600</b></p></div>
+            </div>
+          </div>
+          <div class="tv">
+            <table class="tbl">
+              <thead><tr><th>Cliente</th><th>Origem</th><th>Etapa</th><th>LTV</th><th>Última compra</th></tr></thead>
+              <tbody>
+                <tr><td><i style="background:#cfe7da">MS</i>Mariana Souza</td><td>WhatsApp</td><td><span class="pill pill--g">Recompra</span></td><td>R$ 2.688</td><td>há 3 dias</td></tr>
+                <tr><td><i style="background:#f6dde6">CR</i>Cristina Rocha</td><td>Instagram</td><td><span class="pill pill--y">Em risco</span></td><td>R$ 1.240</td><td>há 64 dias</td></tr>
+                <tr><td><i style="background:#e5e7f6">PL</i>Pedro Lima</td><td>Site</td><td><span class="pill">Novo</span></td><td>R$ 0</td><td>—</td></tr>
+                <tr><td><i style="background:#f6efd9">JR</i>Juliana Reis</td><td>WhatsApp</td><td><span class="pill pill--g">Fiel</span></td><td>R$ 5.910</td><td>há 11 dias</td></tr>
+                <tr><td><i style="background:#dfeef0">RT</i>Rafael Torres</td><td>Indicação</td><td><span class="pill pill--y">Reativar</span></td><td>R$ 860</td><td>há 122 dias</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tv">
+            <div class="aim">
+              <div class="tile"><small>Conversas atendidas pela I.A</small><b>78%</b><div class="bar bar--lg"><span style="width:78%"></span></div></div>
+              <div class="tile"><small>Tempo médio de resposta</small><b>4s</b><div class="bar bar--lg"><span style="width:96%"></span></div></div>
+              <div class="tile"><small>Leads qualificados sozinha</small><b>1.932</b><div class="bar bar--lg"><span style="width:64%"></span></div></div>
+              <div class="tile"><small>Agendamentos feitos</small><b>412</b><div class="bar bar--lg"><span style="width:41%"></span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="center"><a href="#contato" data-open-form class="btn btn--brand btn--lg">Quero falar com um especialista <svg class="ic"><use href="#i-arrow"/></svg></a></div>
+    </div>
+  </section>
+
+  <!-- CALCULADORA -->
+  <section class="calc">
+    <div class="wrap">
+      <h2 class="h2"><span class="t-mute">Quanto está escapando</span><br>todo mês?</h2>
+      <p class="lead">Em média, de 15% a 30% do faturamento escapa entre o primeiro contato e o pagamento. Faça a conta da sua empresa.</p>
+      <div class="calc__box">
+        <div class="calc__top">
+          <div><p class="eyebrow">Faça a conta</p><h3>Quanto sua empresa fatura por mês?</h3></div>
+          <p class="calc__val"><b id="calcVal">R$ 150 mil</b></p>
+        </div>
+        <input type="range" id="calcRange" min="20" max="2000" step="10" value="150" aria-label="Faturamento mensal em milhares de reais">
+        <div class="calc__scale"><span>R$ 20 mil</span><span>R$ 500 mil</span><span>R$ 1 mi</span><span>R$ 2 mi</span></div>
+        <div class="calc__rows">
+          <div><span>Venda que escapa hoje<small>estimativa de 20% sem processo</small></span><div class="bar bar--muted"><span id="barLost"></span></div><b id="calcLost">R$ 30.000</b></div>
+          <div><span>Recuperável com a Reactiv<small>metade do que escapa, em média</small></span><div class="bar"><span id="barRec"></span></div><b id="calcRec">R$ 15.000</b></div>
+        </div>
+        <div class="calc__res">
+          <div class="calc__main"><small>Volta pro seu caixa</small><b id="calcMain">R$ 15.000</b><small>por mês</small><a href="#contato" data-open-form class="btn btn--white btn--sm">Quero recuperar isso <svg class="ic"><use href="#i-arrow"/></svg></a></div>
+          <div class="calc__mini"><b id="calcYear">R$ 180.000</b><small>por ano</small></div>
+          <div class="calc__mini"><b>7 dias</b><small>pra operação estar rodando</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JORNADA -->
+  <section class="jr" id="como-funciona">
+    <div class="wrap"><h2 class="h2"><span class="t-mute">Do primeiro contato</span><br>à operação rodando.</h2></div>
+    <div class="panel panel--dark jr__panel">
+      <span class="jr__badge"><i></i>Operação no ar em até 7 dias</span>
+      <div class="jr__text" id="jrText"><p class="eyebrow eyebrow--light">Etapa 1 de 5</p><h3>Você chega até nós</h3><p>Pelo site, WhatsApp ou indicação. Um especialista responde em minutos.</p></div>
+      <div class="jr__track">
+        <svg class="jr__arcs" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"><path d="M100 110 Q200 -10 300 110M300 110 Q400 -10 500 110M500 110 Q600 -10 700 110M700 110 Q800 -10 900 110"/></svg>
+        <button class="jr__step is-on"><span><svg class="ic"><use href="#i-target"/></svg></span>Você chega até nós</button>
+        <button class="jr__step"><span><svg class="ic"><use href="#i-video"/></svg></span>Diagnóstico</button>
+        <button class="jr__step"><span><svg class="ic"><use href="#i-plus"/></svg></span>Implantação</button>
+        <button class="jr__step"><span><svg class="ic"><use href="#i-circlecheck"/></svg></span>Entrega</button>
+        <button class="jr__step"><span><svg class="ic"><use href="#i-chat"/></svg></span>Acompanhamento</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="ld" id="contato">
+    <div class="wrap ld__in">
+      <div>
+        <span class="ld__badge"><i></i>Vagas de implantação limitadas por mês</span>
+        <h2 class="ld__title">Pare de perder<br>vendas <span>todos os dias.</span></h2>
+        <p class="ld__p">Seu WhatsApp deveria ser o centro da operação. Na maioria das empresas ele é desorganizado, manual, lento e reativo.</p>
+        <p class="ld__strong">Transforme atendimento em processo, e processo em venda.</p>
+        <ul class="ld__list"><li>Setup completo em 7 dias</li><li>Você não configura nada</li><li>Time de tecnologia junto com você</li></ul>
+      </div>
+      <div class="ld__card">
+        <h3>Fale com um especialista agora</h3>
+        <p>Nosso time atende direto no WhatsApp. Sem espera, sem burocracia.</p>
+        <div class="ld__item"><span><svg class="ic"><use href="#i-chat"/></svg></span><div><b>Resposta em minutos</b>Atendimento humano e rápido</div></div>
+        <div class="ld__item"><span><svg class="ic"><use href="#i-bolt"/></svg></span><div><b>Sem compromisso</b>Análise gratuita da sua operação</div></div>
+        <div class="ld__item"><span><svg class="ic"><use href="#i-shield"/></svg></span><div><b>Sem fidelidade</b>Você fica pelo resultado</div></div>
+        <button class="btn btn--brand btn--lg btn--block" data-open-form>Quero falar com um especialista <svg class="ic"><use href="#i-arrow"/></svg></button>
+        <p class="ld__safe"><svg class="ic"><use href="#i-shield"/></svg>Seus dados estão seguros. Sem spam.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap ft__grid">
+    <div>
+      <a href="#top" class="brand brand--light"><img src="img/logo-mark.svg" alt="" width="28" height="28"><span>reactiv</span></a>
+      <p>CRM de WhatsApp, Instagram, SMS e e-mail, com um time de tecnologia que implanta e opera junto com você.</p>
+    </div>
+    <div><h4>Plataforma</h4><a href="#plataforma">Funcionalidades</a><a href="#painel">Tour pelo painel</a><a href="#integracoes">Integrações</a><a href="https://app.reactiv.com.br">Login</a></div>
+    <div><h4>Empresa</h4><a href="#servicos">Serviços</a><a href="#resultados">Clientes</a><a href="#como-funciona">Como funciona</a></div>
+    <div><h4>Contato</h4><a href="#contato" data-open-form>Falar com especialista</a><a href="mailto:contato@reactiv.com.br">contato@reactiv.com.br</a></div>
+  </div>
+  <div class="wrap ft__bottom"><span>© <span id="year"></span> Reactiv · reactiv.com.br</span><span>Todos os direitos reservados</span></div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal__bg" data-close></div>
+  <form class="modal__box" id="leadForm">
+    <button type="button" class="modal__x" data-close aria-label="Fechar">×</button>
+    <span class="ld__badge ld__badge--light"><i></i>Leva menos de 1 minuto</span>
+    <h3>Conte sobre a sua empresa</h3>
+    <p>Um especialista te chama no WhatsApp com a análise da sua operação.</p>
+    <label>Nome completo<input name="nome" required autocomplete="name"></label>
+    <label>WhatsApp<input name="whats" required inputmode="tel" placeholder="(00) 00000-0000" autocomplete="tel"></label>
+    <label>E-mail<input name="email" type="email" required autocomplete="email"></label>
+    <label>Site ou Instagram da empresa<input name="site" placeholder="@suaempresa"></label>
+    <label>O que você precisa?
+      <select name="interesse">
+        <option>CRM + automações de WhatsApp</option>
+        <option>Agente de I.A de atendimento</option>
+        <option>Integrações e software sob medida</option>
+        <option>Operação de CRM gerenciada</option>
+        <option>Ainda não sei, quero um diagnóstico</option>
+      </select>
+    </label>
+    <button class="btn btn--brand btn--lg btn--block" type="submit">Quero falar com um especialista <svg class="ic"><use href="#i-arrow"/></svg></button>
+  </form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
