@@ -776,3 +776,12 @@ html, body { overflow-x: clip; }
 .vid__play .ic { width: 28px; height: 28px; margin-left: 5px; }
 .vid__soon { position: relative; z-index: 1; color: rgba(255, 255, 255, .8); font-size: 14px; font-weight: 500; }
 @media (max-width: 860px) { .vid { padding: 80px 0; } .vid__frame { border-radius: 16px; margin: 32px auto 28px; } .vid__play { width: 68px; height: 68px; } }
+
+/* botão flutuante do WhatsApp */
+.wa-float { position: fixed; right: 22px; bottom: 22px; z-index: 90; width: 60px; height: 60px; border-radius: 50%; display: grid; place-items: center; background: #25d366; box-shadow: 0 14px 34px -10px rgba(37, 211, 102, .7); transition: transform .25s var(--ease); }
+.wa-float::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: #25d366; z-index: -1; animation: waPulse 2.4s ease-out infinite; }
+@keyframes waPulse { 0% { transform: scale(1); opacity: .55; } 100% { transform: scale(1.7); opacity: 0; } }
+.wa-float:hover { transform: scale(1.07); }
+.wa-float__tip { position: absolute; right: 72px; white-space: nowrap; padding: 8px 14px; border-radius: 10px; background: #fff; color: var(--ink); font-size: 14px; font-weight: 500; box-shadow: 0 10px 30px -10px rgba(0, 0, 0, .35); opacity: 0; transform: translateX(8px); transition: opacity .25s, transform .25s var(--ease); pointer-events: none; }
+.wa-float:hover .wa-float__tip { opacity: 1; transform: none; }
+@media (max-width: 760px) { .wa-float { right: 16px; bottom: 16px; width: 54px; height: 54px; } }

@@ -1,5 +1,7 @@
 // Número que recebe os leads do formulário (só dígitos, com DDI). Troque pelo WhatsApp comercial.
-const WHATSAPP = '5500000000000';
+const WHATSAPP = '5537988347387';
+const WA_MSG = 'Olá! Vim pelo site da Reactiv e quero falar com um especialista.';
+const WA_URL = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(WA_MSG)}`;
 
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
@@ -228,7 +230,11 @@ $$('.h2, .lead, .integ__map, .eco__grid, .browser, .calc__box, .res__rail, .ld__
 const modal = $('#modal');
 const openModal = e => { e.preventDefault(); modal.classList.add('is-open'); modal.setAttribute('aria-hidden', 'false'); setTimeout(() => $('input', modal).focus(), 250); };
 const closeModal = () => { modal.classList.remove('is-open'); modal.setAttribute('aria-hidden', 'true'); };
-$$('[data-open-form]').forEach(b => b.addEventListener('click', openModal));
+// todos os CTAs abrem o WhatsApp direto
+$$('[data-open-form]').forEach(b => {
+  if (b.tagName === 'A') { b.href = WA_URL; b.target = '_blank'; b.rel = 'noopener'; }
+  else b.addEventListener('click', () => open(WA_URL, '_blank'));
+});
 $$('[data-close]', modal).forEach(b => b.addEventListener('click', closeModal));
 addEventListener('keydown', e => e.key === 'Escape' && closeModal());
 $('#leadForm').addEventListener('submit', e => {
