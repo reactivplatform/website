@@ -597,3 +597,13 @@ input[type=range]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 
 @keyframes ring { 50% { box-shadow: 0 0 0 7px rgba(184, 145, 58, .25); } }
 @media (max-width: 860px) { .goals { grid-template-columns: 1fr 1fr; } .ch-tabs { flex-wrap: wrap; justify-content: center; } }
 .ch-tabs button { padding: 7px 10px; font-size: 12.5px; white-space: nowrap; }
+
+/* imagem dos cases */
+.case { padding: 0 0 24px; overflow: hidden; }
+.case > *:not(.case__img) { margin-inline: 24px; }
+.case__img { position: relative; height: 170px; overflow: hidden; }
+.case__img img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.85) contrast(1.05); transition: transform .8s var(--ease); }
+.case:hover .case__img img { transform: scale(1.06); }
+.case__img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(2, 12, 8, 0) 40%, rgba(5, 22, 15, .95)), linear-gradient(0deg, rgba(0, 96, 57, .18), rgba(0, 96, 57, .18)); }
+.case__img .case__ic { position: absolute; left: 20px; bottom: -2px; z-index: 1; background: var(--brand); color: #fff; box-shadow: 0 8px 20px -6px rgba(0, 0, 0, .6); }
+.case__seg { margin-top: 16px; }
