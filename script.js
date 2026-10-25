@@ -38,6 +38,8 @@ const GOALS = [
     chat: [['out', 'Paula, seu sérum deve estar acabando 💧'], ['out', 'Quer repor com frete grátis? <a>reactiv.link/r/92a</a>'], ['in', 'Quero! Manda 2'], ['out', 'Feito ✓ Pedido de 2 unidades criado.']] },
   { tag: 'Lançamentos', title: 'Estrutura que aguenta o pico.', text: 'Lançamento, live e data comemorativa trazem o pico de pedidos de uma vez. Disparo em massa pela API oficial, sem bloqueio.',
     chat: [['out', '🔴 Estamos AO VIVO agora com 40% off!'], ['out', 'Entra aqui: <a>reactiv.link/live</a>'], ['in', 'Tô entrando!!'], ['out', 'Só até meia-noite ⏰']] },
+  { tag: 'Call center', call: true, title: 'Call center com I.A que liga e atende.', text: 'Uma voz natural treinada com o seu script liga pra leads, confirma agendamentos, faz cobrança e atende o telefone 24h. Tudo transcrito e registrado no CRM.',
+    chat: [['out', 'Oi, Paula! Aqui é a Ana, da Clínica Movimento. Tudo bem?'], ['in', 'Tudo, pode falar.'], ['out', 'Tô ligando pra confirmar sua sessão amanhã às 9h. Posso confirmar?'], ['in', 'Pode sim, obrigada!'], ['out', 'Confirmado ✓ Te mando o endereço no WhatsApp.']] },
 ];
 
 /* ---------- conteúdo dinâmico ---------- */
@@ -91,17 +93,34 @@ function playChat(lines) {
     const p = document.createElement('p'); p.className = `m ${dir}`; p.innerHTML = html; phBody.appendChild(p);
   }, reduce ? 0 : 350 + n * 700)));
 }
+const phone = $('.phone'), chTabs = $$('#chTabs button'), CALL = GOALS.findIndex(g => g.call);
+let callTimer;
+function setChannel(name) {
+  chTabs.forEach(x => x.classList.toggle('is-on', x.textContent === name));
+  const call = name === 'Ligação';
+  phone.classList.toggle('is-call', call);
+  $('.phone__input').textContent = call ? 'Transcrição ao vivo · salva no CRM' : 'Digite uma mensagem…';
+  clearInterval(callTimer);
+  if (call) {
+    let sec = 0; const sub = $('#phSub');
+    const tick = () => { sub.textContent = `em ligação · 00:${String(sec++).padStart(2, '0')}`; };
+    tick(); callTimer = setInterval(tick, 1000);
+  } else $('#phSub').textContent = name === 'WhatsApp' ? 'online' : `via ${name}`;
+}
 function setGoal(i) {
   goalIdx = i; const g = GOALS[i];
   goalBtns.forEach((b, n) => b.classList.toggle('is-on', n === i));
   $('#goalTag').textContent = g.tag; $('#goalTitle').textContent = g.title; $('#goalText').textContent = g.text;
+  if (g.call) setChannel('Ligação');
+  else if (phone.classList.contains('is-call')) setChannel('WhatsApp');
   playChat(g.chat);
 }
 function autoGoal() { clearInterval(goalTimer); goalTimer = setInterval(() => setGoal((goalIdx + 1) % GOALS.length), 7000); }
 goalBtns.forEach((b, i) => b.addEventListener('click', () => { setGoal(i); autoGoal(); }));
-$$('#chTabs button').forEach(b => b.addEventListener('click', () => {
-  $$('#chTabs button').forEach(x => x.classList.toggle('is-on', x === b));
-  $('#phSub').textContent = b.textContent === 'WhatsApp' ? 'online' : `via ${b.textContent}`;
+chTabs.forEach(b => b.addEventListener('click', () => {
+  if (b.textContent === 'Ligação') { setGoal(CALL); autoGoal(); return; }
+  if (GOALS[goalIdx].call) { setGoal(0); autoGoal(); }
+  setChannel(b.textContent);
   playChat(GOALS[goalIdx].chat);
 }));
 const canais = $('.canais');
