@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=10">
+  <link rel="stylesheet" href="styles.css?v=13">
 </head>
 <body>
 
@@ -48,7 +48,8 @@
     <symbol id="i-dollar" viewBox="0 0 24 24"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
     <symbol id="i-store" viewBox="0 0 24 24"><path d="M3 9 5 3h14l2 6M3 9h18v2a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0V9ZM5 13v8h14v-8"/></symbol>
     <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
-    <symbol id="i-play"viewBox="0 0 24 24"><path d="M6 4v16l14-8L6 4Z"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 4v16l14-8L6 4Z"/></symbol>
   </defs>
 </svg>
 
@@ -76,27 +77,46 @@
 <main>
 
   <!-- HERO -->
-  <section class="hero" id="top">
-    <div class="hero__bg" aria-hidden="true">
-      <div class="hero__ghost">
-        <div class="gh-row"><i style="width:38%"></i><i style="width:22%"></i></div>
-        <div class="gh-cards"><b></b><b></b><b></b></div>
-        <div class="gh-chart"></div>
-        <div class="gh-row"><i style="width:60%"></i></div>
-        <div class="gh-row"><i style="width:44%"></i><i style="width:18%"></i></div>
+  <section class="hx" id="top">
+    <div class="hx__bg" aria-hidden="true"><i></i><i></i></div>
+    <div class="hx__in">
+      <span class="hx__badge"><img src="img/logo-mark.svg" alt="" width="20" height="20">Você opera. A Reactiv faz a receita crescer.</span>
+      <h1 class="hx__title">Você mantém a operação. <br>Nós criamos novas fontes de receita.</h1>
+      <p class="hx__sub">CRM, agentes de I.A e um <b>time dedicado da Reactiv</b> que implanta, opera e encontra receita nova todo mês: recuperação, recompra, reativação e novos canais. Sem você precisar se preocupar.</p>
+
+      <div class="hx__prompt">
+        <span class="hx__spark"><img src="img/logo-mark.svg" alt="" width="26" height="26"></span>
+        <span class="hx__typed" id="typed">Recuperar vendas perdidas</span><i class="hx__caret"></i>
+        <a href="#contato" data-open-form class="hx__go">Falar com o time</a>
       </div>
-    </div>
-    <div class="wrap hero__in">
-      <span class="hero__badge"><i></i>CRM + time de tecnologia, num só contrato</span>
-      <h1 class="hero__title">
-        <span class="t-mute">Seu cliente chama.</span>
-        Quem responde primeiro<br class="br-d"> leva a venda.
-      </h1>
-      <div class="hero__foot">
-        <p class="hero__sub">CRM, automações e I.A num só lugar, com um time que implanta e opera junto com você. Use a nossa estrutura de <span class="hl">WhatsApp</span>.</p>
-        <div class="hero__btns">
-          <a href="#contato" data-open-form class="btn btn--brand btn--lg">Quero uma análise gratuita <svg class="ic"><use href="#i-arrow"/></svg></a>
-          <a href="#painel" class="hero__peek"><svg class="ic ic--fill"><use href="#i-play"/></svg>Veja o painel por dentro</a>
+      <div class="hx__chips">
+        <button data-open-form><span>$</span>Criar régua de recompra</button>
+        <button data-open-form><span><svg class="ic"><use href="#i-phone"/></svg></span>Call center com I.A</button>
+        <button data-open-form><span><svg class="ic"><use href="#i-repeat"/></svg></span>Reativar clientes parados</button>
+      </div>
+
+      <div class="hx__stage" aria-hidden="true">
+        <div class="hx__side hx__side--l">
+          <div class="hx__mate"><i style="background:#cfe7da">AP</i><div><b>Ana Paula</b><small>Gerente de conta</small></div></div>
+          <div class="hx__mate"><i style="background:#f3e3c4">LM</i><div><b>Léo Martins</b><small>Especialista em automação</small></div></div>
+          <div class="hx__mate"><i style="background:#dfe3f3">BR</i><div><b>Bia Rocha</b><small>Analista de dados</small></div></div>
+          <div class="hx__note"><span>✓</span><div><b>Seu time dedicado</b><small>no WhatsApp, todo dia</small></div></div>
+        </div>
+
+        <div class="hx__phone">
+          <div class="hx__notch"></div>
+          <div class="hx__head"><span class="hx__av"><img src="img/logo-mark.svg" alt="" width="40" height="40"></span><div><b>Reactiv · Seu time</b><small>● online</small></div><em>WhatsApp</em></div>
+          <div class="hx__chat" id="hxChat"></div>
+        </div>
+
+        <div class="hx__side hx__side--r">
+          <div class="hx__rev">
+            <p>Novas fontes de receita</p>
+            <div><span><i style="--c:#7ad9ab"></i>Reativação<small>142 clientes voltaram</small></span><b>R$ 38,4k</b></div>
+            <div><span><i style="--c:#c9a24a"></i>Recompra<small>régua de 25 dias</small></span><b>R$ 21,9k</b></div>
+            <div><span><i style="--c:#0e8a55"></i>Recuperação<small>carrinho e Pix</small></span><b>R$ 47,2k</b></div>
+          </div>
+          <div class="hx__note hx__note--r"><span><svg class="ic"><use href="#i-calendar"/></svg></span><div><b>Reunião de resultados</b><small>toda semana, com o seu time</small></div></div>
         </div>
       </div>
     </div>
@@ -605,6 +625,6 @@
   </form>
 </div>
 
-<script src="script.js?v=10"></script>
+<script src="script.js?v=13"></script>
 </body>
 </html>

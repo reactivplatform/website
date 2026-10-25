@@ -61,6 +61,37 @@ $('#igRail').innerHTML = CLIENTS.map(c => `
     <p class="igc__cat">${esc(c.cat)}<em>Ver perfil ↗</em></p>
   </a>`).join('');
 
+/* ---------- hero: prompt digitando + conversa com o time ---------- */
+const typed = document.getElementById('typed');
+if (typed) {
+  const ideas = ['Recuperar vendas perdidas', 'Criar uma régua de recompra', 'Reativar clientes parados', 'Ligar para leads com I.A', 'Abrir um canal novo de vendas'];
+  let k = 0;
+  const typeIdea = () => {
+    const txt = ideas[k++ % ideas.length]; let n = 0;
+    const step = () => { typed.textContent = txt.slice(0, ++n); if (n < txt.length) setTimeout(step, 45); else setTimeout(erase, 2200); };
+    const erase = () => { typed.textContent = typed.textContent.slice(0, -1); if (typed.textContent) setTimeout(erase, 22); else setTimeout(typeIdea, 250); };
+    step();
+  };
+  if (!reduce) setTimeout(typeIdea, 2200);
+  const chat = document.getElementById('hxChat');
+  const script = [
+    ['', 'Bom dia! Rodamos a campanha de reativação ontem 🚀'],
+    ['', '<b>142 clientes</b> voltaram a comprar. Isso deu <b>R$ 38.400</b> em receita nova.'],
+    ['me', 'Que demais! Qual o próximo passo?'],
+    ['', 'Já montamos a régua de recompra. Ela sobe amanhã, e eu te mostro o resultado na reunião de sexta.'],
+  ];
+  const play = () => {
+    chat.innerHTML = '';
+    script.forEach(([who, html], n) => setTimeout(() => {
+      chat.querySelector('.hx__typing')?.remove();
+      chat.insertAdjacentHTML('beforeend', `<p class="hx__msg ${who}">${html}<small>09:${12 + n}</small></p>`);
+      if (n < script.length - 1 && script[n + 1][0] === '') chat.insertAdjacentHTML('beforeend', '<div class="hx__typing"><i></i><i></i><i></i></div>');
+    }, reduce ? 0 : 600 + n * 1600));
+    if (!reduce) setTimeout(play, 600 + script.length * 1600 + 5000);
+  };
+  play();
+}
+
 /* ---------- nav ---------- */
 const nav = $('#nav'), hero = $('.hero'), dock = $('.dock');
 function navTheme() { nav.classList.toggle('is-light', scrollY > dock.offsetTop + dock.offsetHeight - 80); }
